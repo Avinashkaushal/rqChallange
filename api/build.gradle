@@ -1,0 +1,24 @@
+plugins {
+    id 'project-conventions'
+}
+
+dependencies {
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // JPA (Hibernate is a popular implementation)
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    implementation 'org.hibernate.orm:hibernate-core:6.2.7.Final'
+
+    // Optional: Spring Data JPA (if using Spring Boot)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Database driver (example: H2)
+    runtimeOnly 'com.h2database:h2'
+}
+
+springBoot {
+    mainClass = 'com.reliaquest.api.ApiApplication'
+}
