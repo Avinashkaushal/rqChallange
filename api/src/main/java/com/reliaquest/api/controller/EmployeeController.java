@@ -6,6 +6,8 @@ import com.reliaquest.api.model.entity.Employee;
 import com.reliaquest.api.service.impl.EmployeeService;
 import java.util.List;
 import java.util.Optional;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,7 +54,7 @@ public class EmployeeController implements IEmployeeController<Employee, Employe
     }
 
     @Override
-    public ResponseEntity<Employee> createEmployee(EmployeeDTO employeeInput) {
+    public ResponseEntity<Employee> createEmployee(@Valid EmployeeDTO employeeInput) {
         return new ResponseEntity<>(employeeService.createEmployee(employeeInput), HttpStatus.CREATED);
     }
 
