@@ -3,7 +3,7 @@ package com.reliaquest.api.controller;
 import com.reliaquest.api.model.EmployeeDTO;
 import com.reliaquest.api.model.EmployeeSearchCriteria;
 import com.reliaquest.api.model.entity.Employee;
-import com.reliaquest.api.service.EmployeeService;
+import com.reliaquest.api.service.impl.EmployeeService;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("api/v1/employees")
 @RequiredArgsConstructor
 public class EmployeeController implements IEmployeeController<Employee, EmployeeDTO> {
 
