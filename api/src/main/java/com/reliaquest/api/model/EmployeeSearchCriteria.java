@@ -1,4 +1,4 @@
-package com.reliaquest.api.entity.model;
+package com.reliaquest.api.model;
 
 import lombok.*;
 
@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 public class EmployeeSearchCriteria {
 
-    private Long id;
-    private String employeeId;
+    private String id;
     private String name;
 }

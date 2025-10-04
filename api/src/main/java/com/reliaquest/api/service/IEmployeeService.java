@@ -1,36 +1,19 @@
 package com.reliaquest.api.service;
 
-import com.reliaquest.api.entity.Employee;
-import com.reliaquest.api.entity.model.EmployeeSearchCriteria;
-
+import com.reliaquest.api.model.EmployeeDTO;
+import com.reliaquest.api.model.EmployeeSearchCriteria;
+import com.reliaquest.api.model.entity.Employee;
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-@Service
-public class IEmployeeService implements EmployeeService {
+public interface IEmployeeService {
 
-    @Override
-    public List<Employee> searchEmployee(EmployeeSearchCriteria searchCriteria) {
-        return List.of();
-    }
+    List<Employee> searchEmployee(EmployeeSearchCriteria searchCriteria);
 
-    @Override
-    public List<String> searchHighestSalaryEmployeeName() {
-        return List.of();
-    }
+    List<String> searchHighestSalaryEmployeeName();
 
-    @Override
-    public Integer getHighestSalary() {
-        return 0;
-    }
+    Integer getHighestSalary();
 
-    @Override
-    public Employee createEmployee() {
-        return null;
-    }
+    Employee createEmployee(EmployeeDTO employeeInput);
 
-    @Override
-    public String deleteEmployee() {
-        return "";
-    }
+    String deleteEmployee(String id);
 }

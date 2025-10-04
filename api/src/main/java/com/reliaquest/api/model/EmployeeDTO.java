@@ -1,4 +1,4 @@
-package com.reliaquest.api.entity.model;
+package com.reliaquest.api.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,12 +7,10 @@ import lombok.Data;
 @Builder
 public class EmployeeDTO {
 
-    private Long id;
-
-    private String employeeId;
+    private String id;
     private String name;
-
+    private Integer salary;
+    private Integer age;
+    private String title;
     private String email;
-
-    private Long salary;
 }
