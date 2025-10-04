@@ -43,11 +43,6 @@ public class EmployeeService implements IEmployeeService {
      * entity using {@link EmployeeDtoToEmployeeEntityMapper}, persists it to the
      * database, and returns the saved entity.
      * </p>
-     *
-     * <p><b>Transactional:</b> The method is executed within a transaction to ensure
-     * data integrity. If an exception occurs during persistence, the transaction will
-     * be rolled back automatically.</p>
-     *
      * @param employeeInput the employee details provided as a {@link EmployeeDTO}
      * @return the persisted {@link Employee} entity with any generated fields
      *         (such as ID) populated

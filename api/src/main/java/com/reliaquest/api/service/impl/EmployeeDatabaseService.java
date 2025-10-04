@@ -11,29 +11,26 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import java.util.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class EmployeeDatabaseService {
 
+    // For criteria builder.
     private final EntityManager entityManager;
+
+    // For jpa derived queries.
     private final EmployeeRepository employeeRepository;
 
     /**
      * Searches for employees based on the given search criteria.
      * <p>
      * This method builds a dynamic JPA Criteria query using the provided
-     * {@link EmployeeSearchCriteria}. The supported search parameters are:
-     * <ul>
-     *   <li><b>id</b> - The unique identifier of the employee (as a String UUID).
-     *       If provided and valid, it filters results by employee ID.</li>
-     *   <li><b>name</b> - The name of the employee (case-insensitive).
-     *       If provided, it performs a LIKE search on the employee name.</li>
-     * </ul>
-     * If no search criteria are provided, the query returns all employees.
-     *
+     * {@link EmployeeSearchCriteria}.
      * @param criteria the {@link EmployeeSearchCriteria} containing optional filters
      * @return a list of {@link Employee} objects matching the search criteria,
      *         or all employees if no criteria are specified
@@ -63,6 +60,9 @@ public class EmployeeDatabaseService {
         return entityManager.createQuery(cq).getResultList();
     }
 
+    /*We can make this request pageable in order to get the highest salary of as
+       many employees as we need hence using page size: 10.
+     */
     public List<String> findTop10EmployeesBySalary() {
         return employeeRepository.findTop10EmployeesBySalary(PageRequest.of(0, 10));
     }
